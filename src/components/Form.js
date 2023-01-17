@@ -7,13 +7,13 @@ function Form ({onFormSubmit}) {
         specialty: "",
         greased: false,
         weight: "",
-        medal: "Wood",
+        medal: "wood",
         image: "",
     }
 
     const [ formData, setFormData ] = useState(initialFormValues)
 
-    const { name, specialty, weight, 'highest medal achieved': medal, image} = formData;
+    const { name, specialty, greased, weight, 'highest medal achieved': medal, image} = formData;
 
     const handleFormData = (e) => {
         const { name, value } = e.target;
@@ -26,6 +26,7 @@ function Form ({onFormSubmit}) {
 
     const handleSubmit = () => {
         onFormSubmit(formData);
+        setFormData(initialFormValues);
     }
 
     return (
@@ -33,7 +34,7 @@ function Form ({onFormSubmit}) {
             <input onChange={handleFormData} value={name} type="text" name="name" placeholder="Name"></input>
             <input onChange={handleFormData} value={specialty} type="text" name="specialty" placeholder="Specialty"></input>
             <label>Greased?</label>
-            <input onChange={handleChecked} name='greased' type="checkbox"></input>
+            <input onChange={handleChecked} checked={greased} name='greased' type="checkbox"></input>
             <input onChange={handleFormData} value={weight} type="number" name="weight" placeholder="Weight"></input>
             <label>Medal</label>
             <select onChange={handleFormData} value={medal} type="text" name="medal">

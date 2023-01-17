@@ -15,7 +15,7 @@ function HogTile ({pig}) {
     }
 
     return (
-        <div name={pig.name} className='pigTile' >
+        <div name={pig.name}>
             <div onClick={hidePig? null : handleClick}>
                 <h3 className='smallHeader' >{pig.name} </h3>
                 {hidePig? null : <img className="minPigTile" src={pig.image}/>}

@@ -18,17 +18,18 @@ function PorkPen ({hogs}) {
 
     const piggies = filteredPigs.map(pig => {
         return (
-            <HogTile className="ui eight wide column" key={pig.name}
-                     pig={pig}/>
+            <div className='pigTile'>
+                <HogTile key={pig.name} pig={pig}/>
+            </div>
         )
     })
 
     return (
-        <div className=''>
-            <div className='ui grid container'>
+        <div>
+            <div>
                 <Filter hogs={hogsArray}  handleHogsArray={handleHogsArray}/>
                 <Form onFormSubmit={onFormSubmit}/>
-                <div>{piggies}</div>
+                <div className='ui grid container'>{piggies}</div>
             </div>
         </div>
         
